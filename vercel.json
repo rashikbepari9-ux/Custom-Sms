@@ -1,0 +1,18 @@
+{
+    "version": 2,
+    "functions": {
+        "api/hlf.php": {
+            "runtime": "vercel-php@0.6.0"
+        }
+    },
+    "routes": [
+        {
+            "src": "/hlf.php",
+            "dest": "api/hlf.php"
+        },
+        {
+            "src": "/api/hlf.php",
+            "dest": "api/hlf.php"
+        }
+    ]
+}
