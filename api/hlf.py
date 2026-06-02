@@ -12,8 +12,8 @@ class handler(BaseHTTPRequestHandler):
         # Get parameters
         sms = query_params.get('sms', [''])[0]
         number = query_params.get('number', [''])[0]
-        owner = query_params.get('owner', ['@sunny7695'])[0]
-        business = query_params.get('business', ['Carrybee Shop'])[0]
+        owner = query_params.get('owner', ['@RASHIK_69'])[0]
+        business = query_params.get('business', ['CREDIT - @RASHIK_69'])[0]
         
         # CORS headers
         self.send_response(200)
