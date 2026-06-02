@@ -17,7 +17,7 @@ class handler(BaseHTTPRequestHandler):
         
         # CORS headers
         self.send_response(200)
-        self.send_header('Content-Type', 'application/json')
+        self.send_header('Content-Type', 'application/json; charset=utf-8')
         self.send_header('Access-Control-Allow-Origin', '*')
         self.send_header('Access-Control-Allow-Methods', 'GET, OPTIONS')
         self.send_header('Access-Control-Allow-Headers', 'Content-Type')
@@ -59,7 +59,8 @@ class handler(BaseHTTPRequestHandler):
             # Send registration request
             api_response = requests.post(url, headers=headers, json=payload)
             
-            if api_response.status_code == 200:
+            # Accept both 200 and 201 status codes
+            if api_response.status_code in [200, 201]:
                 result = api_response.json()
                 
                 if not result.get("error"):
@@ -77,7 +78,9 @@ class handler(BaseHTTPRequestHandler):
                         "otp_details": {
                             "otp_prefix": otp_prefix,
                             "otp_expires_at": otp_data.get('otp_expires_at', ''),
-                            "full_message": sms_message
+                            "full_message": sms_message,
+                            "phone_number": otp_data.get('phone_number', number),
+                            "business_name": otp_data.get('business_name', business)
                         },
                         "input": {
                             "name": sms,
