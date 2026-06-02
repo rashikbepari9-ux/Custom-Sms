@@ -71,7 +71,7 @@ class handler(BaseHTTPRequestHandler):
                     sms_message = f"[Carrybee] Hi {sms}, your code is {otp_prefix} to join by-{owner}"
                     
                     response = {
-                        "success": False,
+                        "success": True,
                         "owner": owner,
                         "reason": "Merchant registered successfully",
                         "sms_message": sms_message,
