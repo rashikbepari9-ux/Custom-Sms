@@ -1,18 +1,19 @@
 {
     "version": 2,
-    "functions": {
-        "api/hlf.php": {
-            "runtime": "vercel-php@0.6.0"
+    "builds": [
+        {
+            "src": "api/hlf.py",
+            "use": "@vercel/python"
         }
-    },
+    ],
     "routes": [
         {
             "src": "/hlf.php",
-            "dest": "api/hlf.php"
+            "dest": "/api/hlf.py"
         },
         {
             "src": "/api/hlf.php",
-            "dest": "api/hlf.php"
+            "dest": "/api/hlf.py"
         }
     ]
 }
